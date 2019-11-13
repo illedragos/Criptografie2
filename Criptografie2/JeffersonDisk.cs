@@ -14,7 +14,7 @@ namespace Criptografie2
                 for (int i = 0; i < Disk.GetLength(0); i++)
                     if (Disk[i, j] == cript_text[j])
                         if (i != 0)
-                            sb.Append(Disk[i - key, j]);
+                            sb.Append(Disk[i - key, j]);//modular
                         else
                             sb.Append(Disk[Disk.GetLength(0)-1, j]);
             }
@@ -40,9 +40,9 @@ namespace Criptografie2
                 for (int i = 0; i < Disk.GetLength(0); i++)
                     if (Disk[i, j] == clear_text[j])
                         if (i != Disk.GetLength(0) - 1)
-                        sb.Append(Disk[i+1,j]);
+                        sb.Append(Disk[i+key,j]);
                         else
-                        sb.Append(Disk[0,j]);
+                        sb.Append(Disk[0,j]);//revizuit
             }
             return sb.ToString();
         }
